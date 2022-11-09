@@ -1,5 +1,8 @@
-export { default as Button } from './Button'
-export { default as Icon } from './Icon'
-export { default as Loading } from './Loading'
+export { default as Button, ButtonVariants } from './Button'
+export { default as Icon, IconVariants } from './Icon'
+export {
+  default as LoadingSpinner,
+  LoadingSpinnerVariants,
+} from './LoadingSpinner'
 export { default as NavItem } from './NavItem'
-export { default as TextField } from './TextInput'
+export { default as TextInput, TextInputVariants } from './TextInput'

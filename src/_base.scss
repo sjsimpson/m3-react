@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;425;450;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1');
 @function flat-tint($fgColor, $fgOpacity, $bgColor: white) {
 
   $red: $fgOpacity * red($fgColor)+(1 - $fgOpacity) * red($bgColor);
@@ -56,12 +58,17 @@ $elevation-level-0: 0px 0px 0px 0px $inner-shadow;
 $elevation-level-1: 0px 1px 2px $inner-shadow, 0px 1px 3px 1px $outer-shadow;
 $elevation-level-2: 0px 1px 2px $inner-shadow, 0px 2px 6px 2px $outer-shadow;
 
-/* TODO:
-  - Update outline and surface layers
-  - Add :focus to button states
-  - Add grid and container systems
-  - Reorganize file structure
-*/
+* {
+  font-family: 'Roboto';
+}
 
-$test: rgb(251, 245, 239);
-$test-2: #fbf5ef;
+body {
+  background-color: $surface;
+  margin: 0px;
+  padding: 0px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'wght' 400, 'opsz' 24;
+  transition: font-variation-settings 200ms cubic-bezier(0.2, 0, 0, 1);
+}

@@ -1,5 +1,5 @@
 import { TextInputColors, TextInputStyles } from './TextInputVariants'
-import { IconStyles } from '../Icon'
+import { IconVariants } from '../Icon'
 
 export interface TextInputProps {
   id: string
@@ -9,6 +9,6 @@ export interface TextInputProps {
   inputStyle: TextInputStyles
   background: TextInputColors
   type?: string
-  icon?: IconStyles
+  icon?: IconVariants.IconStyles
   disabled?: boolean
 }

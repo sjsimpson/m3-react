@@ -1,4 +1,4 @@
-import './Loading.scss'
+import './LoadingSpinner.scss'
 
 import React, { FC } from 'react'
 import { LoadingSpinnerProps } from './LoadingSpinner.types'

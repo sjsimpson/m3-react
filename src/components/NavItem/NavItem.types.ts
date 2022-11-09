@@ -1,7 +1,7 @@
-import { IconStyles } from '../Icon'
+import { IconVariants } from '../Icon'
 
 export interface NavItemProps {
-  icon: IconStyles
+  icon: IconVariants.IconStyles
   onClick: Function
   label?: string
   match?: boolean

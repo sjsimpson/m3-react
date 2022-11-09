@@ -1,11 +1,11 @@
 import { ButtonStyles } from './ButtonVariants'
-import { IconStyles } from '../Icon'
+import { IconVariants } from '../Icon'
 
 export interface ButtonProps {
   type: ButtonStyles
   text: string
   onClick: Function
-  icon?: IconStyles
+  icon?: IconVariants.IconStyles
   iconOnly?: boolean
   disabled?: boolean
 }

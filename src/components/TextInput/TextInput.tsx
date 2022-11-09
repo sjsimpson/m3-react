@@ -1,10 +1,10 @@
 import './TextInput.scss'
 
-import * as React from 'react'
+import React, { FC } from 'react'
 import { TextInputProps } from './TextInput.types'
-import Icon, { IconColors, IconStyles } from '../Icon'
+import Icon, { IconVariants } from '../Icon'
 
-const TextInput = (props: TextInputProps) => {
+const TextInput: FC<TextInputProps> = (props: TextInputProps) => {
   let [active, setActive] = React.useState<boolean>(false)
 
   const handleInput = (event: any) => {
@@ -33,7 +33,10 @@ const TextInput = (props: TextInputProps) => {
       <div className="text-input-content">
         {props.icon && (
           <div className="icon-container">
-            <Icon icon={props.icon} color={IconColors.onSurfaceVariant} />
+            <Icon
+              icon={props.icon}
+              color={IconVariants.IconColors.onSurfaceVariant}
+            />
           </div>
         )}
         <div className="text-input-container">
@@ -67,8 +70,8 @@ const TextInput = (props: TextInputProps) => {
               onClick={() => {
                 props.onInput('')
               }}
-              icon={IconStyles.cancel}
-              color={IconColors.onSurfaceVariant}
+              icon={IconVariants.IconStyles.cancel}
+              color={IconVariants.IconColors.onSurfaceVariant}
             />
           )}
         </div>

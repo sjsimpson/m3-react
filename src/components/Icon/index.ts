@@ -1,3 +1,3 @@
 export { default } from './Icon'
 
-export * from './IconVariants'
+export * as IconVariants from './IconVariants'

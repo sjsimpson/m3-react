@@ -1,3 +1,3 @@
 export { default } from './TextInput'
 
-export * from './TextInputVariants'
+export * as TextInputVariants from './TextInputVariants'

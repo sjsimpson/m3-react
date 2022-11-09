@@ -1,6 +1,6 @@
-import './Button.scss'
-
 import React, { FC } from 'react'
+
+import './Button.scss'
 import { ButtonProps } from './Button.types'
 import Icon from '../Icon'
 

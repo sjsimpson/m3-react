@@ -4,13 +4,9 @@ import typescript from '@rollup/plugin-typescript'
 import external from 'rollup-plugin-peer-deps-external'
 import dts from 'rollup-plugin-dts'
 import scss from 'rollup-plugin-scss'
+import bundleScss from 'rollup-plugin-bundle-scss'
 
 import packageJson from './package.json' assert { type: 'json' }
-
-// alias({
-//   resolve: ['', '.ts', '.tsx'],
-//   entries: [{ find: '@', replacement: path.resolve(__dirname, 'src/') }],
-// })
 
 export default [
   {
@@ -33,7 +29,12 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      scss(),
+      bundleScss({ output: 'styles/_m3.scss', exclusive: false }),
+      scss({
+        include: ['/**/*.scss'],
+        output: 'dist/styles.css',
+        failOnError: true,
+      }),
     ],
   },
   {
