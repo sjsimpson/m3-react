@@ -1,5 +1,4 @@
 .button {
-  font-family: 'Roboto';
   font-weight: 500;
   cursor: pointer;
 
@@ -80,12 +79,6 @@
       color: flat-tint($primary, $hover-opacity, $primary);
     }
 
-    // &:focus {
-    //   border-color: $primary;
-    //   background-color: tint($primary, $active-opacity);
-    //   color: flat-tint($primary, $hover-opacity, $primary);
-    // }
-
     &:active {
       background-color: tint($primary, $active-opacity);
       color: flat-tint($primary, $hover-opacity, $primary);
@@ -134,7 +127,6 @@
 }
 
 .icon-button {
-  font-family: 'Roboto';
   font-weight: 500;
   cursor: pointer;
 

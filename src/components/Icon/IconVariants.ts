@@ -1,13 +1,8 @@
-export enum IconSizes {
-  small = 'small',
-  large = 'large',
-}
-
 export enum IconStyles {
   home = 'home',
-  openMenu = 'menu',
-  closeMenu = 'menu_open',
-  stocks = 'monitoring',
+  menu = 'menu',
+  menuOpen = 'menu_open',
+  monitoring = 'monitoring',
   palette = 'palette',
   info = 'info',
   search = 'search',
@@ -21,6 +16,7 @@ export enum IconStyles {
 }
 
 export enum IconColors {
+  primary = 'primary',
   onPrimaryContainer = 'on-primary-container',
   onSurfaceVariant = 'on-surface-variant',
 }

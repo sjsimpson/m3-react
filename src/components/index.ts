@@ -1,4 +1,5 @@
 export { default as Button, ButtonVariants } from './Button'
+export { default as Dialog } from './Dialog'
 export { default as Icon, IconVariants } from './Icon'
 export {
   default as LoadingSpinner,

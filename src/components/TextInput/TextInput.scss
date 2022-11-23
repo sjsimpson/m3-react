@@ -75,7 +75,6 @@
         transform: translateY(-8px);
 
         /* M3/body/small */
-        font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 12px;
@@ -120,9 +119,9 @@
     outline: 2px solid $primary;
   }
 
-  // &:hover {
-  //   background-color: flat-tint($on-surface, $hover-opacity, $surface-variant);
-  // }
+  &:not(.active):hover {
+    outline: 1px solid $on-surface;
+  }
 
   .text-input-content {
     display: inline-flex;
@@ -180,7 +179,6 @@
         color: $primary;
         background-color: $surface;
 
-        font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 12px;

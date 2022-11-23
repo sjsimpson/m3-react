@@ -9,7 +9,7 @@ const Icon: FC<IconProps> = (props: IconProps) => {
       onClick={() => {
         props.onClick && props.onClick()
       }}
-      className={`material-symbols-outlined ${props.color}`}
+      className={`material-symbols-outlined ${props.color ?? ''}`}
     >
       {props.icon}
     </span>
