@@ -1,0 +1,83 @@
+$drawer-background: flat-tint($primary, .05, $surface);
+$drawer-outline: flat-tint($primary, .15, $surface);
+
+.drawer {
+  height: 100%;
+  width: 320px;
+
+  position: fixed;
+
+  z-index: 200;
+
+  transition: transform .1s;
+  transform: translateX(-320px);
+
+  background-color: $drawer-background;
+  border-left: 1px solid $drawer-outline;
+  border-radius: 0px 12px 12px 0px;
+
+  &.drawer--open {
+    display: block;
+    width: 320px;
+
+    transition: transform .3s;
+    transform: translateX(0px);
+
+    @include elevation-level-2;
+  }
+
+  .drawer-content-top {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    order: -1;
+
+    // margin-top: 20px;
+    padding: 8px 12px;
+    align-items: start;
+    min-width: 0px;
+    // z-index: 100;
+  }
+
+  .drawer-content-bottom {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    order: 1;
+
+    padding: 8px 12px;
+    align-items: start;
+    min-width: 0px;
+    // z-index: 100;
+  }
+
+  .open-button-container {
+    padding: 8px 18px;
+  }
+
+  .drawer-list-container {
+    padding: 8px 12px;
+  }
+}
+
+.drawer-background {
+  display: block;
+  visibility: hidden;
+  position: fixed;
+  background-color: black;
+  opacity: 0;
+
+  height: 100%;
+  width: 100%;
+  z-index: 150;
+
+  transition: visibility 0.1s, opacity 0.1s;
+
+  &.drawer-background--open {
+    transition: opacity .3s;
+    visibility: visible;
+    opacity: .32;
+  }
+}

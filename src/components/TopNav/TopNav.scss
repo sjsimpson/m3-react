@@ -1,0 +1,49 @@
+$hover-color: flat-tint($primary, $hover-opacity, $tinted-surface);
+
+.top-nav {
+  position: fixed;
+  z-index: 8;
+
+  font-family: 'Roboto';
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+
+  height: 64px;
+  width: 100%;
+  padding: 8px 18px;
+
+  background-color: $tinted-surface;
+
+  .top-nav-left {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    order: -1;
+
+    align-items: center;
+    min-width: 0px;
+    z-index: 100;
+  }
+
+  .top-nav-right {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    order: 1;
+
+    align-items: center;
+    min-width: 0px;
+    z-index: 100;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .top-nav {
+    display: none;
+  }
+}

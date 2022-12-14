@@ -1,10 +1,10 @@
-import './NavItem.scss'
+import './SideNavItem.scss'
 
 import React, { FC } from 'react'
-import { NavItemProps } from './NavItem.types'
+import { SideNavItemProps } from './SideNavItem.types'
 import Icon from '../Icon'
 
-const NavItem: FC<NavItemProps> = (props: NavItemProps) => {
+const SideNavItem: FC<SideNavItemProps> = (props: SideNavItemProps) => {
   const handleClick = (event: any) => {
     event.preventDefault()
     props.onClick()
@@ -31,4 +31,4 @@ const NavItem: FC<NavItemProps> = (props: NavItemProps) => {
   )
 }
 
-export default NavItem
+export default SideNavItem

@@ -1,6 +1,6 @@
 import { IconVariants } from '../Icon'
 
-export interface NavItemProps {
+export interface SideNavItemProps {
   icon: IconVariants.IconStyles
   onClick: Function
   label?: string

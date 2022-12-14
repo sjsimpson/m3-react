@@ -42,6 +42,10 @@ $active-color: tint($on-surface-variant, $active-opacity);
     transition: font-variation-settings 200ms cubic-bezier(0.2, 0, 0, 1);
   }
 
+  .material-symbols-outlined {
+    color: $on-surface-variant;
+  }
+
   &:hover {
 
     .icon-container {
@@ -49,10 +53,12 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     .nav-label {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 550;
     }
 
     .material-symbols-outlined {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 600, 'opsz' 24;
     }
   }
@@ -64,10 +70,12 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     .nav-label {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 400;
     }
 
     .material-symbols-outlined {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 300, 'opsz' 24;
     }
   }
@@ -81,10 +89,12 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     .nav-label {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 625;
     }
 
     .material-symbols-outlined {
+      color: $on-primary-container;
       font-variation-settings: 'wght' 400, 'opsz' 24, 'FILL' 1;
     }
 
@@ -94,6 +104,7 @@ $active-color: tint($on-surface-variant, $active-opacity);
       }
 
       .material-symbols-outlined {
+        color: $on-primary-container;
         font-variation-settings: 'wght' 600, 'opsz' 24, 'FILL' 1;
       }
     }
@@ -104,10 +115,12 @@ $active-color: tint($on-surface-variant, $active-opacity);
       }
 
       .nav-label {
+        color: $on-primary-container;
         font-variation-settings: 'wght' 400;
       }
 
       .material-symbols-outlined {
+        color: $on-primary-container;
         font-variation-settings: 'wght' 300, 'opsz' 24, 'FILL' 1;
       }
     }

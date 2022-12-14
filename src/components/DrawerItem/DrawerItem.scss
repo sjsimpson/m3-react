@@ -1,0 +1,109 @@
+$header-background: flat-tint($primary, .05, $surface);
+$hover-color: tint($on-surface-variant, $hover-opacity);
+$active-color: tint($on-surface-variant, $active-opacity);
+
+.drawer-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  height: 48px;
+  width: 295px;
+
+  padding: 8px 16px;
+
+  border: none;
+  border-radius: 24px;
+
+  text-decoration: none;
+  transition: .2s;
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+  }
+
+  .drawer-label {
+    display: block;
+    align-items: center;
+
+    font-size: 17px;
+    font-variation-settings: 'wght' 500;
+    line-height: 24px;
+
+    color: $on-surface-variant;
+    text-decoration: none;
+    transition: font-variation-settings 200ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .material-symbols-outlined {
+    color: $on-surface-variant;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+
+    .drawer-label {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 550;
+    }
+
+    .material-symbols-outlined {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 600, 'opsz' 24;
+    }
+  }
+
+  &:active {
+    background-color: $active-color;
+
+    .drawer-label {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 400;
+    }
+
+    .material-symbols-outlined {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 300, 'opsz' 24;
+    }
+  }
+
+  &.active {
+    $active-color: flat-tint($primary, .10, $header-background);
+    background-color: $active-color;
+
+    .drawer-label {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 600;
+    }
+
+    .material-symbols-outlined {
+      color: $on-primary-container;
+      font-variation-settings: 'wght' 400, 'opsz' 24, 'FILL' 1;
+    }
+
+    &:hover {
+      background-color: flat-tint($on-surface, $hover-opacity, $active-color);
+
+      .material-symbols-outlined {
+        font-variation-settings: 'wght' 600, 'opsz' 24, 'FILL' 1;
+      }
+    }
+
+    &:active {
+      background-color: flat-tint($on-surface, $active-opacity, $active-color);
+
+      .drawer-label {
+        color: $on-primary-container;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .material-symbols-outlined {
+        color: $on-primary-container;
+        font-variation-settings: 'wght' 300, 'opsz' 24, 'FILL' 1;
+      }
+    }
+  }
+}
