@@ -6,17 +6,12 @@ import { DialogProps } from './Dialog.types'
 import Icon, { IconVariants } from '../Icon'
 
 const Dialog: FC<DialogProps> = (props: DialogProps) => {
-  const handleClose = (event: any) => {
-    event.preventDefault()
-    props.close()
-  }
-
   return (
     <div className="modal-container">
       <div className="modal-header">
         <div className="header-text">{props.header}</div>
         <div className="close-button-container">
-          <div className="close-button" onClick={handleClose}>
+          <div className="close-button" onClick={props.handleClose}>
             <Icon icon={IconVariants.IconStyles.close} />
           </div>
         </div>
