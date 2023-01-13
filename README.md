@@ -43,10 +43,18 @@ Instructions on how to use each component can be found below.
 I am constantly working to expand our usable components, but thus far the list includes:
 
 - Button
+- Dialog
+- Drawer
+- DrawerItem
 - Icon
 - LoadingSpinner
+- SideNav
+- SideNav
+- SideNavItem
 - NavItem
 - TextInput
+- TopNav
+- TopNavItem
 
 All components have default styling, and uses SCSS for those styles. To use the components in this project, you need to import the styles and include them in your app:
 

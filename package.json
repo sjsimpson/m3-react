@@ -1,6 +1,6 @@
 {
   "name": "m3-react",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React components following the Google's Material 3 design pattern",
   "repository": "https://github.com/sjsimpson/m3-react",
   "author": "sjsimpson <spencerjsimpson@gmail.com>",
