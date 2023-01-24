@@ -1,4 +1,3 @@
-$header-background: flat-tint($primary, .05, $surface);
 $hover-color: tint($on-surface-variant, $hover-opacity);
 $active-color: tint($on-surface-variant, $active-opacity);
 
@@ -14,6 +13,17 @@ $active-color: tint($on-surface-variant, $active-opacity);
   text-decoration: none;
 
   .icon-container {
+
+    .state-layer {
+      height: 100%;
+      width: 100%;
+      border-radius: 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,6 +37,10 @@ $active-color: tint($on-surface-variant, $active-opacity);
       height: 32px;
       width: 56px;
       border-radius: 16px;
+
+      .state-layer {
+        border-radius: 16px;
+      }
     }
   }
 
@@ -48,7 +62,7 @@ $active-color: tint($on-surface-variant, $active-opacity);
 
   &:hover {
 
-    .icon-container {
+    .state-layer {
       background-color: $hover-color;
     }
 
@@ -65,7 +79,7 @@ $active-color: tint($on-surface-variant, $active-opacity);
 
   &:active {
 
-    .icon-container {
+    .state-layer {
       background-color: $active-color;
     }
 
@@ -81,11 +95,9 @@ $active-color: tint($on-surface-variant, $active-opacity);
   }
 
   &.active {
-    // $active-color: $primary;
-    $active-color: flat-tint($primary, .10, $header-background);
 
     .icon-container {
-      background-color: $active-color;
+      background-color: tint($primary, $hover-opacity);
     }
 
     .nav-label {
@@ -99,8 +111,8 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     &:hover {
-      .icon-container {
-        background-color: flat-tint($on-surface, $hover-opacity, $active-color);
+      .state-layer {
+        background-color: $hover-color;
       }
 
       .material-symbols-outlined {
@@ -110,8 +122,8 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     &:active {
-      .icon-container {
-        background-color: flat-tint($on-surface, $active-opacity, $active-color);
+      .state-layer {
+        background-color: $active-color;
       }
 
       .nav-label {

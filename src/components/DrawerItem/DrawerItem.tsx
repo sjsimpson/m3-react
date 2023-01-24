@@ -22,12 +22,16 @@ const DrawerItem: FC<DrawerItemProps> = (props: DrawerItemProps) => {
       }
       onClick={handleClick}
     >
-      <span
-        className={props.label ? 'icon-container has-label' : 'icon-container'}
-      >
-        <Icon icon={props.icon} />
+      <span className="state-layer">
+        <span
+          className={
+            props.label ? 'icon-container has-label' : 'icon-container'
+          }
+        >
+          <Icon icon={props.icon} />
+        </span>
+        {props.label && <div className="drawer-label">{props.label}</div>}
       </span>
-      {props.label && <div className="drawer-label">{props.label}</div>}
     </a>
   )
 }

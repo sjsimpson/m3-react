@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..600,0..1');
-
 @function flat-tint($fgColor, $fgOpacity, $bgColor: white) {
 
   $red: $fgOpacity * red($fgColor)+(1 - $fgOpacity) * red($bgColor);
@@ -16,19 +13,22 @@
 
 $clear: rgba(0, 0, 0, 0);
 
+$nav-color: hsl(30, 70%, 96%);
+$tinted-surface: $nav-color;
+
 $primary: hsl(30, 100%, 40%);
 $on-primary: hsl(30, 100%, 100%);
-$primary-container: hsl(30, 100%, 90%);
+$primary-container: hsl(30, 100%, 96%);
 $on-primary-container: hsl(30, 100%, 10%);
 
-$secondary: hsl(30, 60%, 40%);
-$on-secondary: hsl(30, 60%, 100%);
-$secondary-container: hsl(30, 60%, 90%);
-$on-secondary-container: hsl(30, 60%, 10%);
+$secondary: hsl(30, 70%, 40%);
+$on-secondary: hsl(30, 70%, 100%);
+$secondary-container: hsl(30, 70%, 96%);
+$on-secondary-container: hsl(30, 70%, 10%);
 
 $tertiary: hsl(354, 31%, 40%);
 $on-tertiary: hsl(354, 31%, 100%);
-$tertiary-container: hsl(354, 31%, 90%);
+$tertiary-container: hsl(354, 31%, 96%);
 $on-tertiary-container: hsl(354, 31%, 10%);
 
 $neutral: hsl(30, 25%, 60%);
@@ -42,8 +42,6 @@ $on-surface: hsl(30, 100%, 10%);
 
 $surface-variant: hsl(20, 15%, 90%);
 $on-surface-variant: hsl(20, 15%, 30%);
-
-$tinted-surface: flat-tint($primary, .05, $surface);
 
 $outline: hsl(20, 15%, 50%);
 
@@ -69,15 +67,4 @@ $elevation-level-2: 0px 1px 2px $inner-shadow, 0px 2px 6px 2px $outer-shadow;
 
 @mixin elevation-level-2 {
   box-shadow: $elevation-level-2;
-}
-
-* {
-  font-family: 'Open Sans', sans-serif;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: $surface;
-  margin: 0px;
-  padding: 0px;
 }

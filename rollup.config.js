@@ -29,9 +29,10 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      bundleScss({ output: 'styles/_m3.scss', exclusive: false }),
+      // bundleScss({ output: 'styles/_components.scss', exclusive: false }),
       scss({
-        include: ['/**/*.scss'],
+        include: ['./src/components/**/*.scss'],
+        prefix: `@import "./src/_variables.scss"; @import "./src/_resets.scss";`,
         output: 'dist/styles.css',
         failOnError: true,
       }),

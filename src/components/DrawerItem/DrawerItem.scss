@@ -1,4 +1,3 @@
-$header-background: flat-tint($primary, .05, $surface);
 $hover-color: tint($on-surface-variant, $hover-opacity);
 $active-color: tint($on-surface-variant, $active-opacity);
 
@@ -10,7 +9,7 @@ $active-color: tint($on-surface-variant, $active-opacity);
   height: 48px;
   width: 295px;
 
-  padding: 8px 16px;
+  // padding: 8px 16px;
 
   border: none;
   border-radius: 24px;
@@ -18,7 +17,20 @@ $active-color: tint($on-surface-variant, $active-opacity);
   text-decoration: none;
   transition: .2s;
 
+  .state-layer {
+    height: 100%;
+    width: 100%;
+
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+
+    display: flex;
+    align-items: center;
+  }
+
   .icon-container {
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +55,9 @@ $active-color: tint($on-surface-variant, $active-opacity);
   }
 
   &:hover {
-    background-color: $hover-color;
+    .state-layer {
+      background-color: $hover-color;
+    }
 
     .drawer-label {
       color: $on-primary-container;
@@ -57,7 +71,9 @@ $active-color: tint($on-surface-variant, $active-opacity);
   }
 
   &:active {
-    background-color: $active-color;
+    .state-layer {
+      background-color: $active-color;
+    }
 
     .drawer-label {
       color: $on-primary-container;
@@ -71,8 +87,7 @@ $active-color: tint($on-surface-variant, $active-opacity);
   }
 
   &.active {
-    $active-color: flat-tint($primary, .10, $header-background);
-    background-color: $active-color;
+    background-color: tint($primary, $hover-opacity);
 
     .drawer-label {
       color: $on-primary-container;
@@ -85,7 +100,9 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     &:hover {
-      background-color: flat-tint($on-surface, $hover-opacity, $active-color);
+      .state-layer {
+        background-color: $hover-color;
+      }
 
       .material-symbols-outlined {
         font-variation-settings: 'wght' 600, 'opsz' 24, 'FILL' 1;
@@ -93,7 +110,9 @@ $active-color: tint($on-surface-variant, $active-opacity);
     }
 
     &:active {
-      background-color: flat-tint($on-surface, $active-opacity, $active-color);
+      .state-layer {
+        background-color: $active-color;
+      }
 
       .drawer-label {
         color: $on-primary-container;

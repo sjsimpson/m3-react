@@ -13,6 +13,8 @@ export enum IconStyles {
   remove = 'remove',
   close = 'close',
   list = 'list',
+  construction = 'construction',
+  work = 'work',
 }
 
 export enum IconColors {

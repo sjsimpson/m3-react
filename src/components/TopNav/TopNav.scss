@@ -1,5 +1,3 @@
-$hover-color: flat-tint($primary, $hover-opacity, $tinted-surface);
-
 .top-nav {
   position: fixed;
   z-index: 8;
@@ -15,7 +13,7 @@ $hover-color: flat-tint($primary, $hover-opacity, $tinted-surface);
   width: 100%;
   padding: 8px 18px;
 
-  background-color: $tinted-surface;
+  background-color: $primary-container;
 
   .top-nav-left {
     display: inline-flex;

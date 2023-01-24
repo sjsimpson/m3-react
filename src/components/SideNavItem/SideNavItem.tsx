@@ -24,7 +24,9 @@ const SideNavItem: FC<SideNavItemProps> = (props: SideNavItemProps) => {
       <span
         className={props.label ? 'icon-container has-label' : 'icon-container'}
       >
-        <Icon icon={props.icon} />
+        <span className="state-layer">
+          <Icon icon={props.icon} />
+        </span>
       </span>
       {props.label && <div className="nav-label">{props.label}</div>}
     </a>

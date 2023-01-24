@@ -1,5 +1,4 @@
-$drawer-background: flat-tint($primary, .05, $surface);
-$drawer-outline: flat-tint($primary, .15, $surface);
+// $drawer-outline: flat-tint($primary, .15, $surface);
 
 .drawer {
   height: 100%;
@@ -12,8 +11,8 @@ $drawer-outline: flat-tint($primary, .15, $surface);
   transition: transform .1s;
   transform: translateX(-320px);
 
-  background-color: $drawer-background;
-  border-left: 1px solid $drawer-outline;
+  background-color: $primary-container;
+  // border-left: 1px solid $drawer-outline;
   border-radius: 0px 12px 12px 0px;
 
   &.drawer--open {
