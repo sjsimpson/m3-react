@@ -1,23 +1,24 @@
 {
   "name": "m3-react",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "React components following the Google's Material 3 design pattern",
   "repository": "https://github.com/sjsimpson/m3-react",
   "author": "sjsimpson <spencerjsimpson@gmail.com>",
   "license": "MIT",
   "private": false,
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "publish:local": "yarn rollup && yalc publish",
     "build": "tsc",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^9.0.2",
     "@types/react": "^18.0.25",
     "react": "^18.2.0",
@@ -26,12 +27,21 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-styles": "^4.0.0",
     "sass": "^1.56.1",
     "tslib": "^2.4.1",
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
     "react": "^18.2.0"
+  },
+  "files": [
+    "dist/",
+    "scss/"
+  ],
+  "dependencies": {
+    "clsx": "^2.0.0"
   }
 }

@@ -13,7 +13,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "dist/dts/",
     "emitDeclarationOnly": true
-  }
+  },
+  "exclude": ["dist", "node_modules"]
 }

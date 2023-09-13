@@ -1,0 +1,22 @@
+export type IconStyles =
+  | 'home'
+  | 'menu'
+  | 'menu_open'
+  | 'monitoring'
+  | 'palette'
+  | 'info'
+  | 'search'
+  | 'cancel'
+  | 'login'
+  | 'logout'
+  | 'add'
+  | 'remove'
+  | 'close'
+  | 'list'
+  | 'construction'
+  | 'work'
+
+export type IconColors =
+  | 'primary'
+  | 'on-primary-container'
+  | 'on-surface-variant'
