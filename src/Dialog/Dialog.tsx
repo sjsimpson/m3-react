@@ -5,25 +5,43 @@ import { clsx } from 'clsx'
 
 import { DialogSizes } from './Dialog.types'
 
-interface DialogProps {
-  children: React.ReactNode
+interface DialogProps extends React.HTMLProps<HTMLDivElement> {
   open: boolean
-  size: DialogSizes
+  modalSize: DialogSizes
+  backgroundProps?: Partial<React.HTMLProps<HTMLDivElement>>
 }
 
-export default function Dialog(props: DialogProps) {
-  const { size, open, children } = props
+const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
+  const {
+    modalSize,
+    open,
+    children,
+    className,
+    backgroundProps = {},
+    ...other
+  } = props
+
   return (
     <div
+      ref={ref}
+      {...other}
       className={clsx(
+        className,
         'modal-container',
         open && 'open',
-        size === 'small' && 'sm',
-        size === 'medium' && 'md',
-        size === 'large' && 'lg',
+        modalSize === 'small' && 'sm',
+        modalSize === 'medium' && 'md',
+        modalSize === 'large' && 'lg',
       )}
     >
-      {open && children}
+      <div
+        {...backgroundProps}
+        className={clsx(backgroundProps?.className, 'modal-inner')}
+      >
+        {open && children}
+      </div>
     </div>
   )
-}
+})
+
+export default Dialog
