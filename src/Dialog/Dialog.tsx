@@ -8,7 +8,7 @@ import { DialogSizes } from './Dialog.types'
 interface DialogProps extends React.HTMLProps<HTMLDivElement> {
   open: boolean
   modalSize: DialogSizes
-  backgroundProps?: Partial<React.HTMLProps<HTMLDivElement>>
+  innerProps?: Partial<React.HTMLProps<HTMLDivElement>>
 }
 
 const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
@@ -17,7 +17,7 @@ const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
     open,
     children,
     className,
-    backgroundProps = {},
+    innerProps = {},
     ...other
   } = props
 
@@ -35,8 +35,8 @@ const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
       )}
     >
       <div
-        {...backgroundProps}
-        className={clsx(backgroundProps?.className, 'modal-inner')}
+        {...innerProps}
+        className={clsx(innerProps?.className, 'modal-inner')}
       >
         {open && children}
       </div>

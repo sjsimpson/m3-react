@@ -1,6 +1,6 @@
 .modal-container {
   // color: $on-surface;
-  // background: $primary-container;
+  background: transparent;
 
   position: fixed;
   top: 50%;
@@ -29,7 +29,7 @@
     position: relative;
 
     color: $on-surface;
-    background: $primary-container;
+    background: $surface-container-high;
 
     height: 100%;
     width: 100%;
