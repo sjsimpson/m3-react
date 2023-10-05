@@ -4,38 +4,42 @@ import React from 'react'
 
 import Icon, { IconStyles } from '../Icon'
 import { ButtonVariants } from './Button.types'
+import { clsx } from 'clsx'
 
-interface ButtonProps {
-  variant?: ButtonVariants
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   text: string
-  onClick: React.MouseEventHandler
+  variant?: ButtonVariants
   icon?: IconStyles
   iconOnly?: boolean
-  disabled?: boolean
-  style?: React.CSSProperties
+  type?: 'button' | 'submit' | 'reset' // Need to strongly type this for some reason
 }
 
-export default function Button(props: ButtonProps) {
-  const {
-    variant = 'filled',
-    text,
-    onClick,
-    icon,
-    iconOnly = false,
-    disabled = false,
-    ...rest
-  } = props
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      variant = 'filled',
+      text,
+      icon,
+      iconOnly = false,
+      disabled = false,
+      ...other
+    } = props
 
-  const className = () => {
-    return `${iconOnly ? 'icon-button' : `button button-${variant}`} ${
-      disabled ? 'disabled' : ''
-    }`
-  }
+    return (
+      <button
+        ref={ref}
+        {...other}
+        className={clsx(
+          iconOnly ? 'icon-button' : `button button-${variant}`,
+          disabled && 'disabled',
+        )}
+      >
+        {icon ? <Icon icon={icon} /> : ''}
+        {!iconOnly && <span>{text}</span>}
+        <div className="state-layer" />
+      </button>
+    )
+  },
+)
 
-  return (
-    <button className={className()} onClick={onClick} {...rest}>
-      {icon ? <Icon icon={icon} /> : ''}
-      {!iconOnly && <span>{text}</span>}
-    </button>
-  )
-}
+export default Button

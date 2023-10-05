@@ -1,4 +1,6 @@
 .button {
+  position: relative;
+
   font-weight: 500;
   cursor: pointer;
 
@@ -15,106 +17,162 @@
   color: $on-primary;
   box-shadow: $elevation-level-0;
 
+  .state-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: inherit;
+
+    background-color: transparent;
+  }
+
   &.button-elevated {
-    background-color: $on-primary;
-    color: $primary;
-    box-shadow: $elevation-level-1;
+    $background-color: $surface-container-low;
+    $color: $primary;
+    $state-layer-color: $primary;
+    $elevation: $elevation-level-1;
+    $hover-elevation: $elevation-level-2;
+    $active-elevation: $elevation-level-1;
+
+    background-color: $background;
+    color: $color;
+    box-shadow: $elevation;
+
 
     &:hover {
-      background-color: flat-tint($primary, $hover-opacity, $on-primary);
-      color: flat-tint($primary, $hover-opacity, $primary);
-      box-shadow: $elevation-level-2;
+      box-shadow: $hover-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $hover-opacity);
+      }
     }
 
     &:active {
-      background-color: flat-tint($primary, $active-opacity, $on-primary);
-      color: flat-tint($primary, $active-opacity, $primary);
-      box-shadow: $elevation-level-1;
+      box-shadow: $active-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $active-opacity);
+      }
     }
   }
 
   &.button-filled {
+    $background-color: $primary;
+    $color: $on-primary;
+    $state-layer-color: $on-primary;
+    $elevation: $elevation-level-0;
+    $hover-elevation: $elevation-level-1;
+    $active-elevation: $elevation-level-0;
+
     background-color: $primary;
     color: $on-primary;
 
     &:hover {
-      background-color: flat-tint($on-primary, $hover-opacity, $primary);
-      color: flat-tint($on-primary, $hover-opacity, $on-primary);
-      box-shadow: $elevation-level-1;
+      box-shadow: $hover-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $hover-opacity);
+      }
     }
 
     &:active {
-      background-color: flat-tint($on-primary, $active-opacity, $primary);
-      color: flat-tint($on-primary, $active-opacity, $on-primary);
-      box-shadow: $elevation-level-0;
+      box-shadow: $active-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $active-opacity);
+      }
     }
   }
 
   &.button-tonal {
+    $background-color: $secondary-container;
+    $color: $on-secondary-container;
+    $state-layer-color: $on-secondary-container;
+    $elevation: $elevation-level-0;
+    $hover-elevation: $elevation-level-1;
+    $active-elevation: $elevation-level-0;
+
     background-color: $secondary-container;
     color: $on-secondary-container;
 
     &:hover {
-      background-color: flat-tint($on-secondary-container, $hover-opacity, $secondary-container);
-      color: flat-tint($on-secondary-container, $hover-opacity, $on-secondary-container);
-      box-shadow: $elevation-level-1;
+      box-shadow: $hover-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $hover-opacity);
+      }
     }
 
     &:active {
-      background-color: flat-tint($on-secondary-container, $active-opacity, $secondary-container);
-      color: flat-tint($on-secondary-container, $active-opacity, $on-secondary-container);
-      box-shadow: $elevation-level-0;
+      box-shadow: $active-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $active-opacity);
+      }
     }
   }
 
   &.button-outlined {
-    color: $primary;
-    background-color: $clear;
+    $background-color: $clear;
+    $outline-color: $outline;
+    $color: $primary;
+    $state-layer-color: $primary;
+    $elevation: $elevation-level-0;
+    $hover-elevation: $elevation-level-0;
+    $active-elevation: $elevation-level-0;
+
+    color: $color;
+    background-color: $background-color;
 
     // figure out border
-    border: 2px solid $outline;
+    border: 2px solid $outline-color;
 
     &:hover {
-      background-color: tint($primary, $hover-opacity);
-      color: flat-tint($primary, $hover-opacity, $primary);
+      box-shadow: $hover-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $hover-opacity);
+      }
     }
 
     &:active {
-      background-color: tint($primary, $active-opacity);
-      color: flat-tint($primary, $hover-opacity, $primary);
-    }
+      box-shadow: $active-elevation;
 
+      .state-layer {
+        background-color: tint($state-layer-color, $active-opacity);
+      }
+    }
   }
 
   &.button-text {
-    color: $primary;
-    background-color: $clear;
+    $background-color: $clear;
+    $color: $primary;
+    $state-layer-color: $primary;
+    $elevation: $elevation-level-0;
+    $hover-elevation: $elevation-level-0;
+    $active-elevation: $elevation-level-0;
 
-    &:hover {
-      background-color: tint($primary, $hover-opacity);
-      color: flat-tint($primary, $hover-opacity, $primary);
-    }
-
-    &:active {
-      background-color: tint($primary, $active-opacity);
-      color: flat-tint($primary, $hover-opacity, $primary);
-    }
-  }
-
-  &.button-title {
-    $color: $on-surface;
-    font-size: 20px;
     color: $color;
-    background-color: $clear;
+    background-color: $background-color;
 
     &:hover {
-      background-color: tint($primary, $hover-opacity);
-      color: flat-tint($primary, $hover-opacity, $color);
+      box-shadow: $hover-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $hover-opacity);
+      }
     }
 
     &:active {
-      background-color: tint($primary, $active-opacity);
-      color: flat-tint($primary, $hover-opacity, $color);
+      box-shadow: $active-elevation;
+
+      .state-layer {
+        background-color: tint($state-layer-color, $active-opacity);
+      }
     }
   }
 
@@ -144,17 +202,26 @@
   display: flex;
   align-items: center;
 
-  background-color: $clear;
-  color: $on-primary;
-  box-shadow: $elevation-level-0;
+  $background-color: $clear;
+  $color: $primary;
+  $state-layer-color: $primary;
+  $elevation: $elevation-level-0;
+  $hover-elevation: $elevation-level-0;
+  $active-elevation: $elevation-level-0;
+
+  color: $color;
+  background-color: $background-color;
+  box-shadow: $elevation;
 
   &:hover {
-    background-color: tint($primary, $hover-opacity);
-    color: flat-tint($primary, $hover-opacity, $primary);
+    .state-layer {
+      background-color: tint($primary, $hover-opacity);
+    }
   }
 
   &:active {
-    background-color: tint($primary, $active-opacity);
-    color: flat-tint($primary, $hover-opacity, $primary);
+    .state-layer {
+      background-color: tint($primary, $active-opacity);
+    }
   }
 }
