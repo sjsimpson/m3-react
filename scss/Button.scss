@@ -1,6 +1,11 @@
 .button {
   position: relative;
 
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+
   font-weight: 500;
   cursor: pointer;
 
@@ -16,6 +21,12 @@
   background-color: $primary;
   color: $on-primary;
   box-shadow: $elevation-level-0;
+
+  // change this?
+  .icon {
+    padding-left: 8px;
+    padding-right: 16px;
+  }
 
   .state-layer {
     position: absolute;
@@ -185,12 +196,13 @@
 }
 
 .icon-button {
+  position: relative;
   font-weight: 500;
   cursor: pointer;
 
   box-sizing: border-box;
   padding: 12px 12px;
-  margin-right: 16px;
+  // margin-right: 16px;
 
   border: none;
   border-radius: 24px;
@@ -213,15 +225,28 @@
   background-color: $background-color;
   box-shadow: $elevation;
 
+  .state-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: inherit;
+
+    background-color: $background-color;
+  }
+
   &:hover {
     .state-layer {
-      background-color: tint($primary, $hover-opacity);
+      background-color: tint($state-layer-color, $hover-opacity);
     }
   }
 
   &:active {
     .state-layer {
-      background-color: tint($primary, $active-opacity);
+      background-color: tint($state-layer-color, $active-opacity);
     }
   }
 }

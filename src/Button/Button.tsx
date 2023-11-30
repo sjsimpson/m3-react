@@ -22,6 +22,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       iconOnly = false,
       disabled = false,
+      className,
       ...other
     } = props
 
@@ -31,7 +32,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...other}
         className={clsx(
           iconOnly ? 'icon-button' : `button button-${variant}`,
+          icon && 'icon',
           disabled && 'disabled',
+          className,
         )}
       >
         {icon ? <Icon icon={icon} /> : ''}
