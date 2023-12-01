@@ -249,4 +249,11 @@
       background-color: tint($state-layer-color, $active-opacity);
     }
   }
+
+  &.disabled {
+    pointer-events: none;
+    color: tint($on-surface, .38);
+    background-color: tint($on-surface, $active-opacity);
+    box-shadow: $elevation-level-0;
+  }
 }

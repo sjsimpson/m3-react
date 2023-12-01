@@ -1,74 +1,91 @@
 import '../../scss/TextInput.scss'
 
-import React from 'react'
+import React, { useEffect, useImperativeHandle, useRef } from 'react'
 import Icon, { IconStyles } from '../Icon'
 import { TextInputStyles, TextInputColors } from './TextInput.types'
+import { clsx } from 'clsx'
 
-interface TextInputProps {
-  id: string
+interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
   label: string
-  value: string
-  onInput: React.FormEventHandler<HTMLInputElement>
   inputStyle: TextInputStyles
   background: TextInputColors
-  placeholder?: string
-  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>
-  type?: string
   icon?: IconStyles
-  disabled?: boolean
 }
-export default function TextInput(props: TextInputProps) {
-  const [active, setActive] = React.useState<boolean>(false)
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+  (props, ref) => {
+    const {
+      value,
+      label,
+      inputStyle,
+      disabled,
+      background,
+      icon,
+      className,
+      ...other
+    } = props
 
-  const handleClick = () => {
-    const input = document.getElementById(props.id)
-    input?.focus()
-  }
+    const [active, setActive] = React.useState<boolean>(false)
 
-  const defaultEventHandler = (event: any) => {
-    event.preventDefault()
-  }
+    const inputRef = useRef<HTMLInputElement>(null)
+    useImperativeHandle(ref, () => inputRef.current!)
 
-  return (
-    <div
-      className={`text-input ${props.inputStyle} ${
-        props.disabled ? 'disabled' : ''
-      } ${active ? 'active' : ''}`}
-      onClick={handleClick}
-    >
-      <div className="text-input-content">
-        {props.icon && (
-          <div className="icon-container">
-            <Icon icon={props.icon} color="on-surface-variant" />
-          </div>
+    useEffect(() => {
+      if (active) {
+        inputRef.current?.focus()
+      }
+    }, [active])
+
+    const handleClick = () => {
+      setActive(true)
+    }
+
+    const defaultEventHandler = (event: any) => {
+      event.preventDefault()
+    }
+
+    return (
+      <div
+        className={clsx(
+          'text-input',
+          inputStyle,
+          disabled && 'disabled',
+          active && 'active',
         )}
-        <div className="text-input-container">
-          <label
-            className={
-              active || props.value
-                ? props.icon
-                  ? `${props.background} has-icon active`
-                  : `${props.background} active`
-                : props.icon
-                ? `${props.background} has-icon`
-                : `${props.background}`
-            }
-          >
-            {props.label}
-          </label>
-          <input
-            id={props.id}
-            value={props.value}
-            type={props.type}
-            className={active || props.value ? 'active' : ''}
-            onInput={props.onInput ?? defaultEventHandler}
-            onKeyUp={props.onKeyUp ?? defaultEventHandler}
-            placeholder={active ? props.placeholder : ''}
-            onFocus={() => setActive(true)}
-            onBlur={() => setActive(false)}
-          />
+        onClick={handleClick}
+      >
+        <div className="text-input-content">
+          {icon && (
+            <div className="icon-container">
+              <Icon icon={icon} color="on-surface-variant" />
+            </div>
+          )}
+          <div className="text-input-container">
+            <label
+              className={clsx(
+                background,
+                (active || value) && 'active',
+                icon && 'has-icon',
+              )}
+            >
+              {label}
+            </label>
+            <input
+              ref={inputRef}
+              {...other}
+              className={clsx((active || value) && 'active', className)}
+              value={value}
+              onInput={props.onInput ?? defaultEventHandler}
+              onKeyUp={props.onKeyUp ?? defaultEventHandler}
+              placeholder={active ? props.placeholder : ''}
+              onFocus={() => setActive(true)}
+              onBlur={() => setActive(false)}
+            />
+          </div>
         </div>
+        <div className="state-layer" />
       </div>
-    </div>
-  )
-}
+    )
+  },
+)
+
+export default TextInput
